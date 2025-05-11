@@ -164,7 +164,7 @@ class FlutterBackgroundRemover {
     }
 
     final result = await compute(
-      _applySoftMask,
+      _blendWithAlphaSoft,
       {
         'image': decodedImage,
         'mask': segmentationMask,
@@ -209,8 +209,6 @@ class FlutterBackgroundRemover {
         newImage.setPixelRgba(x, y, pixel.r, pixel.g, pixel.b, alpha);
       }
     }
-
-
 
     return newImage;
   }
