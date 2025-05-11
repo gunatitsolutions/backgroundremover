@@ -137,13 +137,9 @@
 // }
 
 import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:flutter/foundation.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_mlkit_selfie_segmentation/google_mlkit_selfie_segmentation.dart';
 import 'package:image/image.dart' as img;
-import 'package:flutter/material.dart';
 
 class FlutterBackgroundRemover {
   FlutterBackgroundRemover._();
@@ -206,13 +202,15 @@ class FlutterBackgroundRemover {
         final int alpha = (confidence * 255).toInt();
 
         final pixel = image.getPixel(x, y);
-        final r = img.getRed(pixel);
-        final g = img.getGreen(pixel);
-        final b = img.getBlue(pixel);
+        // final r = img.getRed(pixel);
+        // final g = img.getGreen(pixel);
+        // final b = img.getBlue(pixel);
 
-        newImage.setPixelRgba(x, y, r, g, b, alpha);
+        newImage.setPixelRgba(x, y, pixel.r, pixel.g, pixel.b, alpha);
       }
     }
+
+
 
     return newImage;
   }
@@ -254,9 +252,9 @@ class FlutterBackgroundRemover {
             dx * dy * q22;
 
         final pixel = image.getPixel(x, y);
-        final r = img.getRed(pixel);
-        final g = img.getGreen(pixel);
-        final b = img.getBlue(pixel);
+        final r = pixel.r;//img.getRed(pixel);
+        final g = pixel.g;//img.getGreen(pixel);
+        final b = pixel.b;//img.getBlue(pixel);
         final a = (interpConfidence.clamp(0.0, 1.0) * 255).toInt();
 
         output.setPixelRgba(x, y, r, g, b, a);

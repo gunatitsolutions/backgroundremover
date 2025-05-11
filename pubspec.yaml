@@ -14,9 +14,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  google_mlkit_selfie_segmentation: 0.6.0
-  image: ^4.1.4
-  apple_vision_selfie: 0.0.2
+  google_mlkit_selfie_segmentation: ^0.10.0
+  image:
+  apple_vision_selfie: ^0.0.5
 dependency_overrides:
   apple_vision_selfie:
     git:
@@ -26,7 +26,7 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
